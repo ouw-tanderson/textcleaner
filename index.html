@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Online Converter and Cleaner</title>
+	
+	<!-- Prevent search engines from indexing this page -->
+	<meta name="robots" content="noindex, nofollow, noarchive" />
+	<meta name="googlebot" content="noindex, nofollow, noarchive" />
+	<meta name="bingbot" content="noindex, nofollow, noarchive" />
+	<meta http-equiv="x-robots-tag" content="noindex, nofollow, noarchive" />
+
+	<script src="tinymceipt/tinymce/js/tinymce/tinymce.min.js"></script>
+	<script src="tinymceipt/tinymce/js/tinymce/plugins/table/plugin.min.js"></script>
+	<script src="tinymceipt/tinymce/js/tinymce/plugins/paste/plugin.min.js"></script>
+	<script src="jquery-ui-themes/jquery-1.10.2.min.js"></script>
+	<script src="jquery-ui-themes/jquery-ui.min.js"></script>
+	<script src="codemirror/lib/codemirror.js"></script>
+	<script src="codemirror/addon/fold/xml-fold.js"></script>
+	<script src="codemirror/addon/edit/matchtags.js"></script>
+	<script src="codemirror/addon/selection/active-line.js"></script>
+	<script src="codemirror/mode/xml/xml.js"></script>
+	<script src="word.js"></script>
+	<script src="js/fci-scripts.js"></script>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link href="jquery-ui-themes/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" href="codemirror/doc/docs.css">
+	<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+</head>
+<body>
+<div id="felugroUzenetAblak">
+	<div id="felugroUzenet">Free online Microsoft Word doc to HTML code converter</div>
+	<div class="okButton">OK</div>
+</div>
+<div id="mindentbevon">
+	<div class="gondolkodobaesett">
+	</div>
+	<div class="pageHeader">
+	</div>
+	<div class="contentDivided">
+		<div class="pageCenter">
+			<div class="tabzContainer">
+				<img src="/wordscript/images/logo.svg" alt="Word to Clean HTML Converter" width="300" class="htmlLogo">
+				<div class="image-border-radius">
+				</div>
+				<div class="tabz">
+					<div id="visualTab" class="activeTab">
+						Word
+					</div>
+					<div id="sourceTab">
+						HTML
+					</div>
+				</div>
+			</div>
+			<div class="editorokatbevonodiv clearfix">
+				<div class="wysiwygBevono">
+					<div class="titleBigScreen">Word</div>
+					<form method="post">
+						<textarea id="vizualisEditor" name="vizualisEditor"></textarea>
+					</form>
+				</div>
+				<div class="sourceWrap">
+					<div class="titleBigScreen">HTML</div>
+					<div class="sourceControlPanel clearfix">
+						<div class="sourceIcons">
+							<a title="Undo" class="undoButton" onclick="undoPressed();">Undo</a>
+							<a title="New page" class="clearButton" onclick="deletePressed();">New page</a>
+							<a title="Set code indentation" id="treeView">indentation</a>
+							<a title="Compress HTML" class="compressHTML">compress</a>
+							<a title="Encoding On/Off" id="characterEncoding">encoding</a>
+						</div>
+						
+						<div class="listOfSourceCleanOptions">
+							<div class="optionSection">
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt1"
+										 title="Removes inline styles" onclick="executeOneThing(1);"><img
+											src="/wordscript/images/ico-inline-style.png" alt="option ico"></div>
+									<div onclick="doOneSourceCleanOption(1)" class="doOptionNow"
+										 title="Remove inline styles now"></div>
+								</div>
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt2"
+										 title="Deletes classes and IDs" onclick="executeOneThing(2);"><img
+											src="/wordscript/images/ico-class-id.png" alt="option2"></div>
+									<div onclick="doOneSourceCleanOption(2)" class="doOptionNow"
+										 title="Delete classes and IDs now"></div>
+								</div>
+							</div>
+							<div class="optionSection">
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt3"
+										 title="Deletes empty tags" onclick="executeOneThing(3);"><img
+											src="/wordscript/images/ico-empty-tag.png" alt="option3"></div>
+									<div onclick="doOneSourceCleanOption(3)" class="doOptionNow"
+										 title="Delete empty tags now"></div>
+								</div>
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt4"
+										 title="Deletes tags with one space" onclick="executeOneThing(4);"><img
+											src="/wordscript/images/ico-one-space.png" alt="option4"></div>
+									<div onclick="doOneSourceCleanOption(4)" class="doOptionNow"
+										 title="Delete tags with one space now"></div>
+								</div>
+							</div>
+							<div class="optionSection">
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt5"
+										 title="Deletes successive spaces" onclick="executeOneThing(5);"><img
+											src="/wordscript/images/ico-successive-space.png" alt="option5"></div>
+									<div onclick="doOneSourceCleanOption(5)" class="doOptionNow"
+										 title="Delete successive spaces now"></div>
+								</div>
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt6"
+										 title="Deletes all comments" onclick="executeOneThing(6);"><img
+											src="/wordscript/images/ico-comments.png" alt="option6"></div>
+									<div onclick="doOneSourceCleanOption(6)" class="doOptionNow"
+										 title="Delete all comments now"></div>
+								</div>
+							</div>
+							<div class="optionSection">
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt7"
+										 title="Delete tag attributes" onclick="executeOneThing(7);"><img
+											src="/wordscript/images/ico-tag-attributes.png" alt="option7"></div>
+									<div onclick="doOneSourceCleanOption(7)" class="doOptionNow"
+										 title="Delete every tag attribute now"></div>
+								</div>
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt8"
+										 title="Deletes all tags" onclick="executeOneThing(8);"><img
+											src="/wordscript/images/ico-plain-text.png" alt="option8"></div>
+									<div onclick="doOneSourceCleanOption(8)" class="doOptionNow"
+										 title="Delete all tags now"></div>
+								</div>
+							</div>
+							
+							<div class="optionSection">
+								<div class="toSourceCleanOption clearfix">
+									<div class="SourceCleanOptionButt" id="fcicreation1"
+										 title="FCI replace placeholders & add devhub class styling" onclick="fcihandler();"><img
+											src="/wordscript/images/ico-tag-attributes.png" alt="option7"></div>
+									<div onclick="fcihandler()" class="doOptionNow"
+										 title="FCI replace placeholders & add devhub class styling"></div>
+								</div>
+								<div class="toSourceCleanOption clearfix disabled">
+									<div class="SourceCleanOptionButt" id="SourceCleanOptionButt8"
+										 title="Deletes all tags" onclick="executeOneThing(8);"><img
+											src="/wordscript/images/ico-plain-text.png" alt="option8"></div>
+									<div onclick="doOneSourceCleanOption(8)" class="doOptionNow"
+										 title="Delete all tags now"></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="multiButton">
+							<div class="convertButton perforSourceCleaning"
+								 title="Execute all checked cleaning options">
+								Clean
+								<div id="onTheConvertButton"></div>
+							</div>
+						</div>
+					
+					</div>
+					
+					<div id="codemirrorEditor"></div>
+					<script>
+						var sourceEditorFricc = CodeMirror ( document.getElementById ( 'codemirrorEditor' ) , {
+							value : '' ,
+							lineNumbers : true ,
+							styleActiveLine : true ,
+							mode : 'text/html' ,
+							lineWrapping : true ,
+							matchTags : { bothTags : true } ,
+						} );
+						sourceEditorFricc.on ( 'change' , function () {
+							inputChanged ();
+						} );
+					</script>
+					<div class="belowSourceEditor">
+						<div id="inputLength">characters: 0</div>
+					</div>
+					<a class="populateSample">
+						Sample
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="gibberishArea">
+	</div>
+	<div class="nagyReklamalas">
+		<div id="wordHTMLbnr">
+			<div class="adBanner">.</div>
+		</div>
+	</div>
+</div>
+<script>
+	createCookie('TEST-COOKIE', 'YES', 30);
+</script>
+</body>
+</html>
